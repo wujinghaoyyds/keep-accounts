@@ -13,5 +13,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #333333;
+  font-size: 16px;
 }
 </style>
