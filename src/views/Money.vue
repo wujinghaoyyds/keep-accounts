@@ -6,6 +6,7 @@
       <FormItem field-name="备注" placeholder="在这里输入备注" @update:value="onUpdateNotes"/>
     </div>
     <Tags :data-source.sync="tags" @update:value="onUpdateTags"/>
+    {{ record }}
   </Layout>
 </template>
 
@@ -57,7 +58,7 @@ export default class Money extends Vue {
   display: flex;
   flex-direction: column-reverse;
 }
-.notes{
+.notes {
   padding: 12px 0;
 }
 </style>
