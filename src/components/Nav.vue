@@ -1,21 +1,29 @@
 <template>
   <nav class="nav">
     <router-link to="/money" class="item" active-class="selected">
-      <Icon name="money"/>
+      <svg class="icon">
+        <use xlink:href="#money"/>
+      </svg>
       记账
     </router-link>
     <router-link to="/labels" class="item" active-class="selected">
-      <Icon name="labels"/>
+      <svg class="icon">
+        <use xlink:href="#labels"/>
+      </svg>
       标签
     </router-link>
     <router-link to="statistics" class="item" active-class="selected">
-      <Icon name="statistics"/>
+      <svg class="icon">
+        <use xlink:href="#statistics"/>
+      </svg>
       统计
     </router-link>
   </nav>
 </template>
 
 <script lang="ts">
+let importAll = (requireContext: __WebpackModuleApi.RequireContext) => requireContext.keys().forEach(requireContext);
+try {importAll(require.context('../assets/icons', true, /\.svg$/));} catch (error) {console.log(error);console.log(`svg加载错误`)}
 export default {
   name: 'Nav',
 };
@@ -38,11 +46,13 @@ nav {
     .icon {
       width: 32px;
       height: 32px;
+      vertical-align: -0.15em;
+      fill: currentColor;
+      overflow: hidden;
     }
   }
   > .item.selected {
     color: $color-highlight;
   }
 }
-
 </style>

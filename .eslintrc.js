@@ -1,6 +1,7 @@
 module.exports = {
     'globals': {
-        '__WebpackModuleApi': 'writable'
+        '__WebpackModuleApi': 'writable',
+        'RecordItem': true
     },
     root: true,
     env: {
@@ -15,6 +16,7 @@ module.exports = {
         ecmaVersion: 2020
     },
     rules: {
+        "@typescript-eslint/explicit-module-boundary-types": "off",
         '@typescript-eslint/no-var-requires': 0,
         'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
         'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off'
