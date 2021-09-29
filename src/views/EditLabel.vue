@@ -26,7 +26,7 @@ import Button from '@/components/Button.vue';
   components: {Button, FormItem}
 })
 export default class EditLabel extends Vue {
-  tag?: Tag = undefined;
+  tag?: { id: string, name: string } = undefined;
 
   created() {
     this.tag = window.findTag(this.$route.params.id);

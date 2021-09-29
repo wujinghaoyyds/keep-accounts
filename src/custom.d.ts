@@ -24,4 +24,6 @@ interface Window {
     createTag: (name: string) => void
     removeTag: (id: string) => boolean
     updateTag: TagListModel['update']//与update的类型一致
+    recordList: RecordItem[]
+    createRecord: (record: RecordItem) => void
 }
