@@ -15,22 +15,22 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
 import {Component} from 'vue-property-decorator';
 import Button from '@/components/Button.vue';
+import TagHelper from '@/mixins/TagHelper';
+import {mixins} from 'vue-class-component';
 
 @Component({
-  components: {Button}
-})
-export default class Labels extends Vue {
-  tags = []
-  // tags = store.tagList;
-  createTag() {
-    const name = window.prompt('请输出标签名');
-    if (name) {
-      // store.createTag(name)
-
+  components: {Button},
+  computed: {
+    tags() {
+      return this.$store.state.tagList;
     }
+  }
+})
+export default class Labels extends mixins(TagHelper) {
+  beforeCreate() {
+    this.$store.commit('fetchTags');
   }
 }
 </script>
@@ -55,8 +55,8 @@ export default class Labels extends Vue {
   }
 }
 .createTag-wrapper {
-    text-align: center;
-    padding: 16px;
-    margin-top: 32px;
+  text-align: center;
+  padding: 16px;
+  margin-top: 32px;
 }
 </style>
