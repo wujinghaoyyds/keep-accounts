@@ -9,6 +9,7 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
     state: {
         recordList: [],
+        createRecordError: null,
         tagList: [],
         currentTag: undefined,
     } as RootState,
@@ -66,8 +67,8 @@ const store = new Vuex.Store({
         fetchRecords(state) {
             state.recordList = JSON.parse(window.localStorage.getItem('recordList') || '[]') as RecordItem[];
         },
-        createRecord(state, record) {
-            const record2: RecordItem = clone(record);//  深拷贝
+        createRecord(state, record: RecordItem) {
+            const record2 = clone(record);//  深拷贝
             record2.createdAt = new Date().toISOString();
             state.recordList.push(record2);
             store.commit('saveRecords');
